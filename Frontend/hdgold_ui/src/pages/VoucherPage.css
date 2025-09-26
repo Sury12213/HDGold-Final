@@ -1,0 +1,184 @@
+.voucher-page {
+  background: #f8fafc;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.voucher-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.voucher-header h1 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.balance-box {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 12px 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  gap: 4px;
+}
+
+.balance-box span {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.balance-box b {
+  font-size: 16px;
+  color: #111827;
+}
+
+.filter-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filters {
+  display: flex;
+  gap: 12px;
+}
+
+.filter-btn {
+  background: #f3f4f6;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 16px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.filter-btn.active {
+  background: #2563eb;
+  color: white;
+}
+
+.sort-select {
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 6px 10px;
+}
+
+.voucher-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.voucher-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 16px;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  display: inline-block;
+  width: fit-content;
+}
+
+.brand.red {
+  background: #ef4444;
+}
+.brand.blue {
+  background: #2563eb;
+}
+.brand.green {
+  background: #16a34a;
+}
+.brand.pink {
+  background: #ec4899;
+}
+.brand.purple {
+  background: #7c3aed;
+}
+.brand.orange {
+  background: #ea580c;
+}
+
+.desc {
+  font-size: 14px;
+  color: #6b7280;
+  flex-grow: 1;
+}
+
+.price {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2563eb;
+}
+
+.exchange-btn {
+  border: none;
+  border-radius: 6px;
+  padding: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  color: white;
+}
+
+.exchange-btn.red {
+  background: #ef4444;
+}
+.exchange-btn.blue {
+  background: #2563eb;
+}
+.exchange-btn.green {
+  background: #16a34a;
+}
+.exchange-btn.pink {
+  background: #ec4899;
+}
+.exchange-btn.purple {
+  background: #7c3aed;
+}
+.exchange-btn.orange {
+  background: #ea580c;
+}
+.qr-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.qr-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 300px;
+}
+.qr-content button {
+  margin-top: 10px;
+  padding: 6px 12px;
+  border: none;
+  background: #007bff;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}

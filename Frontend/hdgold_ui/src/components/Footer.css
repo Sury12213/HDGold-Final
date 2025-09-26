@@ -1,0 +1,93 @@
+.footer {
+  background-color: #1f2937;
+  display: flex;
+  flex-direction: column;
+  padding: 48px 0;
+  width: 100%;
+}
+
+.footer .footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* canh giữa toàn bộ */
+  gap: 32px;
+  width: 100%;
+}
+
+.footer .footer-links {
+  display: flex;
+  justify-content: center; /* cột nằm giữa */
+  flex-wrap: wrap; /* màn nhỏ tự xuống dòng */
+  gap: 48px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.footer .div {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 150px; /* để cột cân đối */
+}
+
+.footer .text-wrapper {
+  color: #ffffff;
+  font-family: "Inter-SemiBold", Helvetica;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.footer .links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer .text-wrapper-2 {
+  color: #9ca3af;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.footer .text-wrapper-2:hover {
+  color: #ffffff; /* hover sáng chữ */
+}
+
+.footer .bottom-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.footer .divider {
+  background-color: #374151;
+  height: 1px;
+  width: 100%;
+}
+
+.footer .copyright {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.footer .social-icons {
+  display: flex;
+  gap: 16px;
+}
+
+.footer .social-icons svg {
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.footer .social-icons svg:hover {
+  color: #2563eb; /* xanh khi hover */
+}
