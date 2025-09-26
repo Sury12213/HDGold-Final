@@ -47,17 +47,22 @@ export const MintPage = () => {
     }
   }, []);
 
-  useEffect(() => {
-    const fetchBalances = async () => {
-      if (!account || !usdt || !vault) return;
+  const fetchBalances = async () => {
+    if (!account || !usdt || !vault || !web3) return;
+    try {
       const usdtBal = await usdt.methods.balanceOf(account).call();
       setUsdtBalance(web3.utils.fromWei(usdtBal, "ether"));
 
       const hdgBal = await vault.methods.balanceOf(account).call();
       setHdgBalance(web3.utils.fromWei(hdgBal, "ether"));
-    };
+    } catch (err) {
+      console.error("Fetch balances error:", err);
+    }
+  };
+
+  useEffect(() => {
     fetchBalances();
-  }, [account, usdt, vault]);
+  }, [account, usdt, vault, web3]);
 
   const handleUsdtInput = async (val) => {
     setUsdtValue(val);
@@ -84,6 +89,7 @@ export const MintPage = () => {
       await usdt.methods.approve(VAULT_ADDRESS, amount).send({ from: account });
       await vault.methods.mintByUSDT(amount).send({ from: account });
       alert("✅ Mint thành công");
+      fetchBalances();
     } catch (err) {
       console.error("Mint error:", err);
     }

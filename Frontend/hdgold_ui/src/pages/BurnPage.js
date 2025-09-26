@@ -51,17 +51,18 @@ export const BurnPage = () => {
     }
   }, []);
 
-  useEffect(() => {
-    const fetchBalances = async () => {
-      if (!account || !usdt || !vault) return;
-      const usdtBal = await usdt.methods.balanceOf(account).call();
-      setUsdtBalance(web3.utils.fromWei(usdtBal, "ether"));
+  const fetchBalances = async () => {
+    if (!account || !usdt || !vault) return;
+    const usdtBal = await usdt.methods.balanceOf(account).call();
+    setUsdtBalance(web3.utils.fromWei(usdtBal, "ether"));
 
-      const hdgBal = await vault.methods.balanceOf(account).call();
-      setHdgBalance(web3.utils.fromWei(hdgBal, "ether"));
-    };
+    const hdgBal = await vault.methods.balanceOf(account).call();
+    setHdgBalance(web3.utils.fromWei(hdgBal, "ether"));
+  };
+
+  useEffect(() => {
     fetchBalances();
-  }, [account, usdt, vault]);
+  }, [account, usdt, vault, web3]);
 
   const handleHdgInput = async (val) => {
     setHdgValue(val);
@@ -91,6 +92,7 @@ export const BurnPage = () => {
         .redeemToUSDT(amount, minUsdtAmount)
         .send({ from: account });
       alert("✅ Burn thành công");
+      fetchBalances();
     } catch (err) {
       console.error("Burn error:", err);
     }
