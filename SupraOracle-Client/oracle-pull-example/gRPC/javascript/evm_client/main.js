@@ -1,7 +1,13 @@
 const PullServiceClient = require("./pullServiceClient");
 const { Web3 } = require("web3");
 const fs = require("fs");
-require("dotenv").config({ path: "../../../../.env" });
+const path = require("path");
+
+// Load .env from SupraOracle-Client root (local) or use env vars (GitHub Actions)
+const envPath = path.resolve(__dirname, "../../../../.env");
+if (fs.existsSync(envPath)) {
+  require("dotenv").config({ path: envPath });
+}
 
 async function main() {
   const address = "testnet-dora-2.supra.com:443"; // Set the gRPC server address
@@ -140,13 +146,21 @@ async function callContract(response) {
   console.log("Đã ghi log vào oracle_updates.log");
 }
 
+const isOnce = process.argv.includes('--once');
 const intervalMs = 5 * 60 * 1000;
 
-main();
+main().then(() => {
+  if (isOnce) {
+    console.log('Single run complete. Exiting.');
+    process.exit(0);
+  }
+});
 
-setInterval(() => {
-  console.log(
-    `\n=== Bắt đầu cập nhật mới lúc ${new Date().toLocaleTimeString()} ===`
-  );
-  main();
-}, intervalMs);
+if (!isOnce) {
+  setInterval(() => {
+    console.log(
+      `\n=== Bắt đầu cập nhật mới lúc ${new Date().toLocaleTimeString()} ===`
+    );
+    main();
+  }, intervalMs);
+}

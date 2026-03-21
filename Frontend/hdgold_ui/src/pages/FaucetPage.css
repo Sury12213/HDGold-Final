@@ -1,0 +1,112 @@
+.faucet-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.faucet-page .page-header h1 {
+  background: linear-gradient(135deg, var(--gold-400), var(--gold-600));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Balances */
+.faucet-balances {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.faucet-balance-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px !important;
+}
+.fb-label {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--dark-200);
+}
+.fb-value {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #fff;
+}
+
+/* Cards */
+.faucet-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 24px !important;
+}
+.faucet-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.faucet-card-header h3 {
+  font-size: 1rem;
+  margin: 0;
+}
+.faucet-desc {
+  font-size: 0.9rem;
+  color: var(--dark-200);
+  line-height: 1.5;
+}
+
+.faucet-link-btn {
+  align-self: flex-start;
+  text-decoration: none;
+}
+
+/* Token address */
+.token-address-box {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 14px;
+  background: var(--dark-850);
+  border-radius: var(--radius-sm);
+}
+.ta-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: var(--dark-300);
+}
+.ta-address {
+  font-size: 0.8rem;
+  color: var(--gold-400);
+  word-break: break-all;
+  font-family: monospace;
+}
+
+/* Instructions */
+.instructions {
+  background: rgba(245, 166, 35, 0.04) !important;
+  border-color: rgba(245, 166, 35, 0.12) !important;
+}
+.faucet-steps {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--dark-200);
+  font-size: 0.9rem;
+}
+.faucet-steps li::marker {
+  color: var(--gold-500);
+  font-weight: 700;
+}
+
+@media (max-width: 480px) {
+  .faucet-balances {
+    grid-template-columns: 1fr;
+  }
+}

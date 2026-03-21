@@ -1,0 +1,31 @@
+name: Oracle Price Updater
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'  # Run every 10 minutes
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  update-price:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: SupraOracle-Client/oracle-pull-example/gRPC/javascript/evm_client
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run oracle price update
+        env:
+          Private_Key: ${{ secrets.ORACLE_PRIVATE_KEY }}
+          Wallet_Address: ${{ secrets.ORACLE_WALLET_ADDRESS }}
+        run: node main.js --once
