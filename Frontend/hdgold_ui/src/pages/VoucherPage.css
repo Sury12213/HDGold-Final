@@ -1,184 +1,81 @@
 .voucher-page {
-  background: #f8fafc;
-  padding: 32px;
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
-
-.voucher-header {
+.voucher-page h1 {
+  background: linear-gradient(135deg, var(--gold-400), var(--gold-600));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.voucher-header-section {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.sovi-balance-card {
+  display: flex;
   align-items: center;
-}
-
-.voucher-header h1 {
-  font-size: 24px;
-  font-weight: 700;
-}
-
-.balance-box {
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  padding: 12px 20px;
-  display: flex;
-  flex-direction: column;
-  text-align: right;
-  gap: 4px;
-}
-
-.balance-box span {
-  font-size: 12px;
-  color: #6b7280;
-}
-
-.balance-box b {
-  font-size: 16px;
-  color: #111827;
-}
-
-.filter-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.filters {
-  display: flex;
   gap: 12px;
+  padding: 14px 20px !important;
 }
-
-.filter-btn {
-  background: #f3f4f6;
-  border: none;
-  border-radius: 20px;
-  padding: 6px 16px;
-  cursor: pointer;
-  font-size: 14px;
+.balance-label {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--dark-200);
 }
-
-.filter-btn.active {
-  background: #2563eb;
-  color: white;
+.balance-value {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--gold-400);
 }
-
-.sort-select {
-  border: 1px solid #d1d5db;
-  border-radius: 6px;
-  padding: 6px 10px;
-}
-
 .voucher-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
 }
-
 .voucher-card {
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
+  padding: 20px !important;
+  transition: transform var(--transition-base);
 }
-
-.brand {
+.voucher-card:hover { transform: translateY(-4px); }
+.voucher-brand {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.7rem;
   font-weight: 700;
-  font-size: 16px;
-  color: white;
-  padding: 6px 12px;
-  border-radius: 6px;
-  display: inline-block;
-  width: fit-content;
+  color: #fff;
+  letter-spacing: 0.05em;
 }
-
-.brand.red {
-  background: #ef4444;
+.voucher-title { font-size: 1rem; margin-top: 4px; }
+.voucher-desc { font-size: 0.85rem; color: var(--dark-200); flex: 1; }
+.voucher-price {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--gold-500);
 }
-.brand.blue {
-  background: #2563eb;
+.voucher-btn { padding: 10px !important; font-size: 0.85rem !important; }
+.qr-code-text {
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: var(--dark-200);
+  margin-top: 8px;
+  word-break: break-all;
 }
-.brand.green {
-  background: #16a34a;
-}
-.brand.pink {
-  background: #ec4899;
-}
-.brand.purple {
-  background: #7c3aed;
-}
-.brand.orange {
-  background: #ea580c;
-}
-
-.desc {
-  font-size: 14px;
-  color: #6b7280;
-  flex-grow: 1;
-}
-
-.price {
-  font-size: 14px;
-  font-weight: 600;
-  color: #2563eb;
-}
-
-.exchange-btn {
-  border: none;
-  border-radius: 6px;
-  padding: 10px;
-  font-weight: 600;
-  cursor: pointer;
-  color: white;
-}
-
-.exchange-btn.red {
-  background: #ef4444;
-}
-.exchange-btn.blue {
-  background: #2563eb;
-}
-.exchange-btn.green {
-  background: #16a34a;
-}
-.exchange-btn.pink {
-  background: #ec4899;
-}
-.exchange-btn.purple {
-  background: #7c3aed;
-}
-.exchange-btn.orange {
-  background: #ea580c;
-}
-.qr-popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
-}
-
-.qr-content {
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  text-align: center;
-  max-width: 300px;
-}
-.qr-content button {
-  margin-top: 10px;
-  padding: 6px 12px;
-  border: none;
-  background: #007bff;
-  color: white;
-  border-radius: 6px;
-  cursor: pointer;
+@media (max-width: 768px) {
+  .voucher-header-section { flex-direction: column; }
+  .sovi-balance-card { width: 100%; }
 }
