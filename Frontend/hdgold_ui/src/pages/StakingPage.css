@@ -1,166 +1,70 @@
 .staking-page {
-  background-color: #f8fafc;
-  padding: 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.page-title {
-  font-size: 28px;
-  font-weight: 700;
-  color: #111827;
-}
-
-.page-subtitle {
-  font-size: 16px;
-  color: #6b7280;
-  margin-bottom: 24px;
-}
-
-.staking-layout {
-  display: flex;
-  gap: 24px;
-  flex-wrap: wrap;
-}
-
-/* Left dashboard */
-.dashboard {
-  flex: 2;
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
-
-.stats-grid {
+.staking-page .page-header h1 {
+  background: linear-gradient(135deg, var(--gold-400), var(--gold-600));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.staking-stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
 }
-
-.stat-card {
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  padding: 20px;
-}
-
-.stat-card h3 {
-  font-size: 14px;
-  color: #6b7280;
-  margin-bottom: 8px;
-}
-
-.stat-card .value {
-  font-size: 20px;
-  font-weight: 700;
-  color: #111827;
-}
-
-.stat-card .value.green {
-  color: #16a34a;
-}
-
-.stat-card .sub {
-  font-size: 12px;
-  color: #6b7280;
-}
-
-/* Performance chart placeholder */
-.performance-card {
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  padding: 20px;
-}
-
-.performance-placeholder {
-  height: 150px;
-  border: 1px dashed #d1d5db;
-  border-radius: 8px;
+.staking-stat-card {
   display: flex;
-  justify-content: center;
   align-items: center;
-  color: #9ca3af;
-}
-
-/* Right actions */
-.actions {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.stake-box,
-.position-box {
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
   gap: 12px;
+  padding: 18px !important;
 }
-
-.input-row {
+.staking-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.staking-action-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.staking-action-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.05rem;
+}
+.staking-input-row {
   display: flex;
   gap: 8px;
 }
-
-.input-row input {
-  flex: 1;
-  padding: 10px;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
+.staking-input-row .input-field { flex: 1; }
+.staking-input-row .max-tag { padding: 10px 14px; font-size: 0.75rem; }
+.input-helper { font-size: 0.8rem; color: var(--dark-200); }
+.position-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px;
+  background: var(--dark-850);
+  border-radius: var(--radius-md);
 }
-
-.max-btn {
-  padding: 0 12px;
-  background: #f3f4f6;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
+.pos-row { display: flex; justify-content: space-between; font-size: 0.9rem; }
+.pos-row span { color: var(--dark-200); }
+.pos-row b { color: #fff; }
+.unstake-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 4px;
 }
-
-.stake-btn {
-  background: #2563eb;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  padding: 12px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.stake-btn:hover {
-  background: #1e40af;
-}
-
-.claim-btn {
-  background: #22c55e;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 12px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.claim-btn:hover {
-  background: #15803d;
-}
-
-.unstake-btn {
-  background: #dc2626;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 12px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.unstake-btn:hover {
-  background: #b91c1c;
+.pos-buttons { display: flex; gap: 10px; }
+.pos-buttons .btn-secondary,
+.pos-buttons .btn-primary { flex: 1; padding: 10px 12px; font-size: 0.85rem; }
+@media (max-width: 1024px) { .staking-stats { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px) {
+  .staking-stats { grid-template-columns: 1fr; }
+  .staking-grid { grid-template-columns: 1fr; }
 }
