@@ -2,11 +2,10 @@
 .env
 *.env
 
-# Ignore private keys or sensitive json
+# Ignore private keys or sensitive files
 *.pem
 *.key
 *.p12
-*.json
 
 # Ignore node modules
 node_modules/
