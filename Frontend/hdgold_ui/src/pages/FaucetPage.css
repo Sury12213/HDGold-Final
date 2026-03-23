@@ -36,7 +36,7 @@
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 1.15rem;
-  color: #fff;
+  color: var(--dark-100);
 }
 
 /* Cards */
@@ -73,6 +73,7 @@
   gap: 4px;
   padding: 12px 14px;
   background: var(--dark-850);
+  border: 1px solid var(--dark-700);
   border-radius: var(--radius-sm);
 }
 .ta-label {
@@ -110,3 +111,32 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ===== Light mode overrides ===== */
+[data-theme="light"] .fb-value {
+  color: #1a1a2e;
+}
+[data-theme="light"] .fb-label {
+  color: #606080;
+}
+[data-theme="light"] .token-address-box {
+  background: #f0f0f4;
+  border-color: #d0d0dc;
+}
+[data-theme="light"] .ta-label {
+  color: #606080;
+}
+[data-theme="light"] .ta-address {
+  color: var(--gold-700);
+}
+[data-theme="light"] .faucet-desc {
+  color: #484868;
+}
+[data-theme="light"] .faucet-steps {
+  color: #484868;
+}
+[data-theme="light"] .instructions {
+  background: rgba(245, 166, 35, 0.06) !important;
+  border-color: rgba(180, 120, 0, 0.15) !important;
+}
+

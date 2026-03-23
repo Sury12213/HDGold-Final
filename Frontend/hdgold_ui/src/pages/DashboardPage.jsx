@@ -51,16 +51,17 @@ export const DashboardPage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      if (!window.ethereum) { setLoading(false); return; }
       try {
-        const provider = new ethers.BrowserProvider(window.ethereum);
+        // Use public RPC for price — works without wallet connection
+        const publicProvider = new ethers.JsonRpcProvider('https://bsc-testnet-rpc.publicnode.com');
 
         // Gold price
-        const priceFeed = new ethers.Contract(PRICE_FEEDER_ADDRESS, PRICE_FEEDER_ABI, provider);
+        const priceFeed = new ethers.Contract(PRICE_FEEDER_ADDRESS, PRICE_FEEDER_ABI, publicProvider);
         const priceVal = await priceFeed.getChiVnd();
         setChiPrice(Number(ethers.formatUnits(priceVal, 18)).toFixed(0));
 
-        if (address) {
+        if (address && window.ethereum) {
+          const provider = new ethers.BrowserProvider(window.ethereum);
           // HDG balance
           const vault = new ethers.Contract(VAULT_ADDRESS, VAULT_ABI, provider);
           const hdgBal = await vault.balanceOf(address);
