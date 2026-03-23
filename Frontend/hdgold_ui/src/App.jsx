@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { Layout } from './components/Layout';
+import { KycGate } from './components/KycGate';
 import { DashboardPage } from './pages/DashboardPage';
 import { MintPage } from './pages/MintPage';
 import { BurnPage } from './pages/BurnPage';
@@ -38,11 +39,11 @@ function App() {
       <Layout>
         <Routes>
           <Route path="/" element={<DashboardPage />} />
-          <Route path="/mint" element={<MintPage />} />
-          <Route path="/burn" element={<BurnPage />} />
-          <Route path="/redeem" element={<RedeemPage />} />
-          <Route path="/staking" element={<StakingPage />} />
-          <Route path="/voucher" element={<VoucherPage />} />
+          <Route path="/mint" element={<KycGate><MintPage /></KycGate>} />
+          <Route path="/burn" element={<KycGate><BurnPage /></KycGate>} />
+          <Route path="/redeem" element={<KycGate><RedeemPage /></KycGate>} />
+          <Route path="/staking" element={<KycGate><StakingPage /></KycGate>} />
+          <Route path="/voucher" element={<KycGate><VoucherPage /></KycGate>} />
           <Route path="/verification" element={<VerificationForm />} />
           <Route path="/faucet" element={<FaucetPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />

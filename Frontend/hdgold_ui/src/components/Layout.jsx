@@ -49,8 +49,8 @@ export const Layout = ({ children }) => {
   useEffect(() => {
     const fetchChiPrice = async () => {
       try {
-        if (!window.ethereum) return;
-        const provider = new ethers.BrowserProvider(window.ethereum);
+        // Use public RPC so price shows without wallet connection
+        const provider = new ethers.JsonRpcProvider('https://bsc-testnet-rpc.publicnode.com');
         const contract = new ethers.Contract(PRICE_FEEDER_ADDRESS, PRICE_FEEDER_ABI, provider);
         const value = await contract.getChiVnd();
         const price = Number(ethers.formatUnits(value, 18));
