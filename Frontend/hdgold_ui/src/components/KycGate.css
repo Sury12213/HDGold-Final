@@ -1,0 +1,104 @@
+/* ===== KYC Gate Banner ===== */
+.kyc-gate-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 20px;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, rgba(245, 166, 35, 0.1), rgba(255, 215, 0, 0.06));
+  border: 1px solid rgba(245, 166, 35, 0.25);
+  border-radius: var(--radius-md);
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.kyc-gate-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.kyc-gate-icon {
+  color: var(--gold-500);
+  flex-shrink: 0;
+}
+
+.kyc-gate-text {
+  font-size: 0.9rem;
+  color: var(--dark-100);
+}
+
+.kyc-gate-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 14px;
+  background: linear-gradient(135deg, var(--gold-600), var(--gold-500));
+  color: var(--dark-950);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.8rem;
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  white-space: nowrap;
+}
+.kyc-gate-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(245, 166, 35, 0.3);
+}
+
+.kyc-gate-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: transparent;
+  border: 1px solid rgba(245, 166, 35, 0.2);
+  border-radius: var(--radius-sm);
+  color: var(--dark-200);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+.kyc-gate-close:hover {
+  background: rgba(245, 166, 35, 0.1);
+  color: var(--gold-500);
+  border-color: var(--gold-500);
+}
+
+/* Light mode */
+[data-theme="light"] .kyc-gate-banner {
+  background: linear-gradient(135deg, rgba(245, 166, 35, 0.08), rgba(255, 215, 0, 0.04));
+  border-color: rgba(180, 120, 0, 0.2);
+}
+[data-theme="light"] .kyc-gate-text {
+  color: #303050;
+}
+[data-theme="light"] .kyc-gate-close {
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #606080;
+}
+
+@media (max-width: 480px) {
+  .kyc-gate-banner {
+    padding: 12px 14px;
+  }
+  .kyc-gate-text {
+    font-size: 0.82rem;
+  }
+}
